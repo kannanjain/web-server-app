@@ -6,10 +6,12 @@
       body {
         text-align: center;
         padding: 40px 0;
-        background: linear-gradient(270deg, #EBF0F5, #c3e0f0, #f0e8d8, #f5d0d0);
+        background: linear-gradient(270deg, #1a1a2e, #16213e, #0f3460, #533483);
         background-size: 400% 400%;
         animation: gradientShift 10s ease infinite;
         min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
       }
 
       @keyframes gradientShift {
@@ -17,15 +19,76 @@
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        opacity: 0.4;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .particle.circle {
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .particle.triangle {
+        width: 0;
+        height: 0;
+        background: transparent;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 25px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .particle.square {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(45deg);
+      }
+
+      .particle:nth-child(1) { width: 20px; height: 20px; left: 10%; top: 20%; animation-delay: 0s; animation-duration: 15s; }
+      .particle:nth-child(2) { width: 15px; height: 15px; left: 80%; top: 10%; animation-delay: -2s; animation-duration: 18s; }
+      .particle:nth-child(3) { width: 25px; height: 25px; left: 30%; top: 70%; animation-delay: -4s; animation-duration: 20s; }
+      .particle:nth-child(4) { width: 18px; height: 18px; left: 70%; top: 60%; animation-delay: -6s; animation-duration: 16s; }
+      .particle:nth-child(5) { width: 12px; height: 12px; left: 50%; top: 30%; animation-delay: -8s; animation-duration: 22s; }
+      .particle:nth-child(6) { width: 22px; height: 22px; left: 15%; top: 50%; animation-delay: -10s; animation-duration: 19s; }
+      .particle:nth-child(7) { width: 16px; height: 16px; left: 85%; top: 80%; animation-delay: -12s; animation-duration: 17s; }
+      .particle:nth-child(8) { width: 14px; height: 14px; left: 60%; top: 5%; animation-delay: -14s; animation-duration: 21s; }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+          transform: translate(30px, -40px) rotate(90deg);
+        }
+        50% {
+          transform: translate(-20px, -60px) rotate(180deg);
+        }
+        75% {
+          transform: translate(-50px, 20px) rotate(270deg);
+        }
+      }
+
         h1 {
-          color: #88B04B;
+          color: #4ade80;
           font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
           font-weight: 900;
           font-size: 40px;
           margin-bottom: 10px;
         }
+
         p {
-          color: #404F5E;
+          color: #e0e0e0;
           font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
           font-size:20px;
           margin: 0;
@@ -37,13 +100,16 @@
         margin-left:-15px;
       }
       .card {
-        background: white;
+        background: rgba(255, 255, 255, 0.1);
         padding: 60px;
         border-radius: 4px;
-        box-shadow: 0 2px 3px #C8D0D8;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
         display: inline-block;
         margin: 0 auto;
         animation: fadeInUp 0.8s ease-out;
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(10px);
       }
 
       @keyframes fadeInUp {
@@ -58,6 +124,17 @@
       }
     </style>
     <body>
+      <div class="particles">
+        <div class="particle circle"></div>
+        <div class="particle triangle"></div>
+        <div class="particle square"></div>
+        <div class="particle circle"></div>
+        <div class="particle triangle"></div>
+        <div class="particle square"></div>
+        <div class="particle circle"></div>
+        <div class="particle triangle"></div>
+      </div>
+
       <div class="card">
         <h1>Success</h1> 
         <p>Your webpage is up and running</p>
