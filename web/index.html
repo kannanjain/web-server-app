@@ -6,7 +6,16 @@
       body {
         text-align: center;
         padding: 40px 0;
-        background: #EBF0F5;
+        background: linear-gradient(270deg, #EBF0F5, #c3e0f0, #f0e8d8, #f5d0d0);
+        background-size: 400% 400%;
+        animation: gradientShift 10s ease infinite;
+        min-height: 100vh;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
         h1 {
           color: #88B04B;
@@ -34,6 +43,18 @@
         box-shadow: 0 2px 3px #C8D0D8;
         display: inline-block;
         margin: 0 auto;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
     <body>
