@@ -29,7 +29,7 @@ Open your browser and navigate to:
 https://localhost:8443
 ```
 
-**Note:** Your browser will show a security warning because we're using a self-signed certificate. This is expected and safe for local development. Click "Advanced" -> "Proceed to localhost" (or equivalent in your browser). Also note, using port 8443 to avoid interefering with usual http traffic.
+**Note:** Your browser will show a security warning because we're using a self-signed certificate. This is expected and safe for local development. Click "Advanced" -> "Proceed to localhost" (or equivalent in your browser). Also note, using port 8443 avoids interefering with usual http traffic.
 
 ### Stopping the Server
 
@@ -54,13 +54,13 @@ Nginx is a is a popular open-source web server and reverse proxy known for  high
 - Has good documentation because it is extensively used
 
 **Compared to other services**
-1. **Apache** - Had very similar pros as using nginx. However, Nginx is more lightweight in comparison (thread-based) compared to Nginx that is (event based)
+1. **Apache** - Had very similar pros as using nginx. However, Nginx (event based) is more lightweight in comparison to Apache (thread-based) 
 2. **Tomcat** - Overkill for static display but used good for Java applications
 3. **IIS** - Good for windows but not ideal for MacOS
 
 ### Dockerfile and Shell
 
-Use a shell file to perform configuration management to automate environment setup using Docker to build a Docker image that is easily build and run on different devices.
+Used a shell file to perform configuration management to automate environment setup using Docker to build a Docker image that is easily build and run on different devices.
 
 **Highlighted features**
 - Does not require an OS specific setup
